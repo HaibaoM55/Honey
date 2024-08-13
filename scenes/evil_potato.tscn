@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxpdxb0kwhmm2"]
+
+[ext_resource type="Texture2D" uid="uid://qlf6wo3qhph5" path="res://assets/potato3.png" id="1_13fdk"]
+[ext_resource type="Script" path="res://scripts/evil_potato.gd" id="1_tgvix"]
+[ext_resource type="Texture2D" uid="uid://bk6cwrsvg0x7s" path="res://assets/potato1.png" id="2_uagqu"]
+[ext_resource type="Texture2D" uid="uid://6ecmfxdccc61" path="res://assets/potato2.png" id="3_2mgrd"]
+[ext_resource type="Texture2D" uid="uid://do63sh4e4kt0w" path="res://assets/potato4.png" id="3_imumi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pn6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_13fdk")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_imumi")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uagqu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2mgrd")
+}],
+"loop": true,
+"name": &"meh",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj0aq"]
+size = Vector2(132, 60)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o4jn"]
+
+[node name="EvilPotato" type="Area2D"]
+script = ExtResource("1_tgvix")
+
+[node name="PotatoSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.66, 0.66)
+sprite_frames = SubResource("SpriteFrames_7pn6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_vj0aq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Text" type="Label" parent="."]
+offset_left = -69.0
+offset_top = 25.0
+offset_right = 71.0
+offset_bottom = 48.0
+text = "100%"
+label_settings = SubResource("LabelSettings_0o4jn")
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

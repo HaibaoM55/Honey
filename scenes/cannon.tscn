@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnpkgu1j1x7qk"]
+
+[ext_resource type="Texture2D" uid="uid://dwj5dpoxry1s4" path="res://assets/cannon.png" id="1_2pd4e"]
+[ext_resource type="Script" path="res://scripts/cannon.gd" id="1_og2cv"]
+[ext_resource type="FontFile" uid="uid://qbcdbgfvp7hf" path="res://assets/font.ttf" id="3_8c3tr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2u5t"]
+size = Vector2(20, 25)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x441v"]
+font = ExtResource("3_8c3tr")
+
+[node name="Cannon" type="Area2D"]
+visibility_layer = 2
+script = ExtResource("1_og2cv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visibility_layer = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2pd4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_e2u5t")
+
+[node name="Text" type="Label" parent="."]
+visible = false
+visibility_layer = 2
+offset_left = -60.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = -12.0
+text = "Enter"
+label_settings = SubResource("LabelSettings_x441v")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

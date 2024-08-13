@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bn7hpba3en1ec"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_3tiwe"]
+[ext_resource type="Texture2D" uid="uid://syn77p5nkxiu" path="res://assets/tileset.png" id="1_uiauj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1nck"]
+atlas = ExtResource("1_uiauj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qc2y"]
+atlas = ExtResource("1_uiauj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phlth"]
+atlas = ExtResource("1_uiauj")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3me2g"]
+atlas = ExtResource("1_uiauj")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7i7q"]
+atlas = ExtResource("1_uiauj")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h85ip"]
+atlas = ExtResource("1_uiauj")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2gpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1nck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qc2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phlth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3me2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7i7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h85ip")
+}],
+"loop": true,
+"name": &"Copper",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5b3h"]
+radius = 7.0
+
+[node name="CopperCoin" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_3tiwe")
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j2gpw")
+animation = &"Copper"
+autoplay = "Copper"
+frame_progress = 0.232421
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o5b3h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

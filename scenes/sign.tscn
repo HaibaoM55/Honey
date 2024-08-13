@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://o7yo5vpfyx8c"]
+
+[ext_resource type="Script" path="res://scripts/sign.gd" id="1_10ej8"]
+[ext_resource type="Texture2D" uid="uid://ctlouqyvos6c7" path="res://assets/tileset.png" id="1_acwuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8de2s"]
+size = Vector2(16, 14)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdd57"]
+
+[node name="Sign" type="Area2D"]
+script = ExtResource("1_10ej8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_acwuo")
+region_enabled = true
+region_rect = Rect2(80.2688, 2.00032, 15.6217, 14.0536)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8de2s")
+
+[node name="EnterText" type="Label" parent="."]
+visible = false
+offset_left = -25.0
+offset_top = -30.0
+offset_right = 25.0
+offset_bottom = -7.0
+text = "ENTER"
+label_settings = SubResource("LabelSettings_vdd57")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

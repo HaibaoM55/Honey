@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cujpclqhu5rnn"]
+
+[ext_resource type="Script" path="res://scripts/finish.gd" id="1_70in1"]
+[ext_resource type="Texture2D" uid="uid://cjuaou8trvwqd" path="res://assets/tileset.png" id="2_p7aft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f08kg"]
+atlas = ExtResource("2_p7aft")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vbyl"]
+atlas = ExtResource("2_p7aft")
+region = Rect2(256, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arxs3"]
+atlas = ExtResource("2_p7aft")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45ds2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f08kg")
+}],
+"loop": true,
+"name": &"cmarked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vbyl")
+}],
+"loop": true,
+"name": &"fmarked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arxs3")
+}],
+"loop": true,
+"name": &"unmarked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c45v"]
+size = Vector2(20, 193)
+
+[node name="Finish" type="Area2D"]
+script = ExtResource("1_70in1")
+
+[node name="Flag" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_45ds2")
+animation = &"unmarked"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -86.5)
+shape = SubResource("RectangleShape2D_1c45v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnjp1abc5crxa"]
+
+[ext_resource type="Texture2D" uid="uid://ci4wp8f5e2pq4" path="res://assets/tileset.png" id="1_b8k25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tar1n"]
+size = Vector2(20, 30)
+
+[node name="GreenPortal" type="Area2D"]
+
+[node name="PortalSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_b8k25")
+region_enabled = true
+region_rect = Rect2(180.89, 0.893849, 20.2696, 31.2138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tar1n")

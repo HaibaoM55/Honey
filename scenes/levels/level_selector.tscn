@@ -1,0 +1,261 @@
+[gd_scene load_steps=39 format=3 uid="uid://ciwwy6dsyj64y"]
+
+[ext_resource type="FontFile" uid="uid://qbcdbgfvp7hf" path="res://assets/font.ttf" id="1_ji580"]
+[ext_resource type="Texture2D" uid="uid://wuwit0xgfoo8" path="res://assets/LevelButtons/1btn.png" id="2_u6nv1"]
+[ext_resource type="Texture2D" uid="uid://ds7f1qq6dk2qf" path="res://assets/LevelButtons/1btnh.png" id="3_fr46h"]
+[ext_resource type="Script" path="res://scripts/LevelBtns.gd" id="4_0pe0g"]
+[ext_resource type="Texture2D" uid="uid://d4hfvhjmpladd" path="res://assets/LevelButtons/2btn.png" id="5_ixhcq"]
+[ext_resource type="Texture2D" uid="uid://bd1maebc0wbme" path="res://assets/LevelButtons/2btnh.png" id="6_vnrng"]
+[ext_resource type="Texture2D" uid="uid://vrd1lhtjfucn" path="res://assets/LevelButtons/3btn.png" id="7_5sxan"]
+[ext_resource type="Texture2D" uid="uid://p4h5fipgwx6u" path="res://assets/LevelButtons/3btnh.png" id="8_mxv0c"]
+[ext_resource type="Texture2D" uid="uid://b6qeeulinibsd" path="res://assets/LevelButtons/4btn.png" id="9_hd760"]
+[ext_resource type="Texture2D" uid="uid://dd5qwn2c3e2b0" path="res://assets/LevelButtons/4btnh.png" id="10_i6lnt"]
+[ext_resource type="Texture2D" uid="uid://bu1er14ofobyc" path="res://assets/LevelButtons/5btn.png" id="11_ai88m"]
+[ext_resource type="Texture2D" uid="uid://dyeepqujf6mtj" path="res://assets/LevelButtons/5btnh.png" id="12_dqekf"]
+[ext_resource type="Texture2D" uid="uid://bokuj8uoo0tte" path="res://assets/LevelButtons/6btn.png" id="13_ehslo"]
+[ext_resource type="Texture2D" uid="uid://d0kgiafque38x" path="res://assets/LevelButtons/6btnh.png" id="14_568bm"]
+[ext_resource type="Texture2D" uid="uid://cx5dkab1p215y" path="res://assets/LevelButtons/7btn.png" id="15_ail30"]
+[ext_resource type="Texture2D" uid="uid://lhkc7gjfivr7" path="res://assets/LevelButtons/7btnh.png" id="16_h573f"]
+[ext_resource type="Texture2D" uid="uid://dfly4wc66xrni" path="res://assets/LevelButtons/8btn.png" id="17_wpfs0"]
+[ext_resource type="Texture2D" uid="uid://bxj1u5h52yyns" path="res://assets/LevelButtons/8btnh.png" id="18_j623k"]
+[ext_resource type="Texture2D" uid="uid://cblj3sr3t0w60" path="res://assets/LevelButtons/9btn.png" id="19_kdg81"]
+[ext_resource type="Texture2D" uid="uid://csb3sa7lm06r4" path="res://assets/LevelButtons/9btnh.png" id="20_ll31e"]
+[ext_resource type="Texture2D" uid="uid://dciphlae0heux" path="res://assets/LevelButtons/10btn.png" id="21_qiptb"]
+[ext_resource type="Texture2D" uid="uid://etsk78pvn76x" path="res://assets/LevelButtons/10btnh.png" id="22_wl5cs"]
+[ext_resource type="Texture2D" uid="uid://vl1s1oe774yi" path="res://assets/LevelButtons/11btn.png" id="23_6sbfx"]
+[ext_resource type="Texture2D" uid="uid://dr3wi7ba6ix75" path="res://assets/LevelButtons/11btnh.png" id="24_plvdc"]
+[ext_resource type="Texture2D" uid="uid://o1t4q65e83hk" path="res://assets/LevelButtons/12btn.png" id="25_rkdya"]
+[ext_resource type="Texture2D" uid="uid://in0v2f4xwr8l" path="res://assets/LevelButtons/12btnh.png" id="26_kyqfu"]
+[ext_resource type="Texture2D" uid="uid://c2lhq176pf0" path="res://assets/LevelButtons/13btn.png" id="27_jvjgk"]
+[ext_resource type="Texture2D" uid="uid://bbfbbr7tp4gk4" path="res://assets/LevelButtons/13btnh.png" id="28_3nvpr"]
+[ext_resource type="Texture2D" uid="uid://bpiis6ra3wn73" path="res://assets/LevelButtons/14btn.png" id="29_j8nl2"]
+[ext_resource type="Texture2D" uid="uid://cfttfdwqdqs1f" path="res://assets/LevelButtons/14btnh.png" id="30_cgdnb"]
+[ext_resource type="Texture2D" uid="uid://cxi8m43c4fbdp" path="res://assets/LevelButtons/15btn.png" id="31_hnhuj"]
+[ext_resource type="Texture2D" uid="uid://bgbjnx1mmsmdr" path="res://assets/LevelButtons/15btnh.png" id="32_wpkuw"]
+[ext_resource type="Texture2D" uid="uid://d3203ruwt275r" path="res://assets/LevelButtons/buttonX.png" id="33_k0ejy"]
+[ext_resource type="Texture2D" uid="uid://c8sgma1lqqqsn" path="res://assets/LevelButtons/buttonXh.png" id="34_0sqwe"]
+[ext_resource type="Script" path="res://scripts/BackBtn.gd" id="35_ab7oj"]
+[ext_resource type="AudioStream" uid="uid://dlwcmc10q8fee" path="res://assets/menu_music.mp3" id="36_64hga"]
+[ext_resource type="Script" path="res://scripts/MenuMusic.gd" id="37_6fcwm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_44n7q"]
+font = ExtResource("1_ji580")
+font_size = 96
+
+[node name="LevelSelector" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 1920.0
+offset_bottom = 129.0
+text = "Select level"
+label_settings = SubResource("LabelSettings_44n7q")
+horizontal_alignment = 1
+
+[node name="Level1" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 200.0
+offset_right = 346.0
+offset_bottom = 400.0
+texture_normal = ExtResource("2_u6nv1")
+texture_hover = ExtResource("3_fr46h")
+script = ExtResource("4_0pe0g")
+metadata/level = 1
+
+[node name="Level2" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 201.0
+offset_right = 711.0
+offset_bottom = 401.0
+texture_normal = ExtResource("5_ixhcq")
+texture_hover = ExtResource("6_vnrng")
+script = ExtResource("4_0pe0g")
+metadata/level = 2
+metadata/Level = 0
+
+[node name="Level3" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 201.0
+offset_right = 1059.0
+offset_bottom = 401.0
+texture_normal = ExtResource("7_5sxan")
+texture_hover = ExtResource("8_mxv0c")
+script = ExtResource("4_0pe0g")
+metadata/level = 3
+
+[node name="Level4" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1210.0
+offset_top = 201.0
+offset_right = 1410.0
+offset_bottom = 401.0
+texture_normal = ExtResource("9_hd760")
+texture_hover = ExtResource("10_i6lnt")
+script = ExtResource("4_0pe0g")
+metadata/level = 4
+
+[node name="Level5" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1562.0
+offset_top = 201.0
+offset_right = 1762.0
+offset_bottom = 401.0
+texture_normal = ExtResource("11_ai88m")
+texture_hover = ExtResource("12_dqekf")
+script = ExtResource("4_0pe0g")
+metadata/level = 5
+
+[node name="Level6" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 491.0
+offset_right = 346.0
+offset_bottom = 691.0
+texture_normal = ExtResource("13_ehslo")
+texture_hover = ExtResource("14_568bm")
+script = ExtResource("4_0pe0g")
+metadata/level = 6
+
+[node name="Level7" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 490.0
+offset_right = 712.0
+offset_bottom = 690.0
+texture_normal = ExtResource("15_ail30")
+texture_hover = ExtResource("16_h573f")
+script = ExtResource("4_0pe0g")
+metadata/level = 7
+
+[node name="Level8" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 490.0
+offset_right = 1059.0
+offset_bottom = 690.0
+texture_normal = ExtResource("17_wpfs0")
+texture_hover = ExtResource("18_j623k")
+script = ExtResource("4_0pe0g")
+metadata/level = 8
+
+[node name="Level9" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1212.0
+offset_top = 490.0
+offset_right = 1412.0
+offset_bottom = 690.0
+texture_normal = ExtResource("19_kdg81")
+texture_hover = ExtResource("20_ll31e")
+script = ExtResource("4_0pe0g")
+metadata/level = 9
+
+[node name="Level10" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1562.0
+offset_top = 490.0
+offset_right = 1762.0
+offset_bottom = 690.0
+texture_normal = ExtResource("21_qiptb")
+texture_hover = ExtResource("22_wl5cs")
+script = ExtResource("4_0pe0g")
+metadata/level = 10
+
+[node name="Level11" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 781.0
+offset_right = 346.0
+offset_bottom = 981.0
+texture_normal = ExtResource("23_6sbfx")
+texture_hover = ExtResource("24_plvdc")
+script = ExtResource("4_0pe0g")
+metadata/level = 11
+
+[node name="Level12" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 781.0
+offset_right = 711.0
+offset_bottom = 981.0
+texture_normal = ExtResource("25_rkdya")
+texture_hover = ExtResource("26_kyqfu")
+script = ExtResource("4_0pe0g")
+metadata/level = 12
+
+[node name="Level13" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 781.0
+offset_right = 1059.0
+offset_bottom = 981.0
+texture_normal = ExtResource("27_jvjgk")
+texture_hover = ExtResource("28_3nvpr")
+script = ExtResource("4_0pe0g")
+metadata/level = 13
+
+[node name="Level14" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1213.0
+offset_top = 780.0
+offset_right = 1413.0
+offset_bottom = 980.0
+texture_normal = ExtResource("29_j8nl2")
+texture_hover = ExtResource("30_cgdnb")
+script = ExtResource("4_0pe0g")
+metadata/level = 14
+
+[node name="Level15" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1560.0
+offset_top = 780.0
+offset_right = 1760.0
+offset_bottom = 980.0
+texture_normal = ExtResource("31_hnhuj")
+texture_hover = ExtResource("32_wpkuw")
+script = ExtResource("4_0pe0g")
+metadata/level = 15
+
+[node name="BackBtn" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 1821.0
+offset_top = 1.0
+offset_right = 1919.0
+offset_bottom = 99.0
+texture_normal = ExtResource("33_k0ejy")
+texture_hover = ExtResource("34_0sqwe")
+script = ExtResource("35_ab7oj")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_64hga")
+script = ExtResource("37_6fcwm")
+
+[connection signal="pressed" from="Panel/Level1" to="Panel/Level1" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level2" to="Panel/Level2" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level3" to="Panel/Level3" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level4" to="Panel/Level4" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level5" to="Panel/Level5" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level6" to="Panel/Level6" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level7" to="Panel/Level7" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level8" to="Panel/Level8" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level9" to="Panel/Level9" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level10" to="Panel/Level10" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level11" to="Panel/Level11" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level12" to="Panel/Level12" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level13" to="Panel/Level13" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level14" to="Panel/Level14" method="_on_pressed"]
+[connection signal="pressed" from="Panel/Level15" to="Panel/Level15" method="_on_pressed"]
+[connection signal="pressed" from="Panel/BackBtn" to="Panel/BackBtn" method="_on_pressed"]
+[connection signal="finished" from="MenuMusic" to="MenuMusic" method="_on_finished"]
+[connection signal="ready" from="MenuMusic" to="MenuMusic" method="_on_ready"]

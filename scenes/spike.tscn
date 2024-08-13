@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://oirenwmrlhat"]
+
+[ext_resource type="Script" path="res://scripts/spike.gd" id="1_foiq0"]
+[ext_resource type="Texture2D" uid="uid://cjuaou8trvwqd" path="res://assets/tileset.png" id="1_nt515"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wa006"]
+a = Vector2(-8, 3)
+b = Vector2(8, 3)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n40kw"]
+a = Vector2(6, -5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6ov06"]
+a = Vector2(-1, -7)
+b = Vector2(7, 8)
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_foiq0")
+
+[node name="SpikeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nt515")
+region_enabled = true
+region_rect = Rect2(0, 128.413, 16.2155, 15.7315)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("SegmentShape2D_wa006")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -2)
+shape = SubResource("SegmentShape2D_n40kw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_6ov06")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

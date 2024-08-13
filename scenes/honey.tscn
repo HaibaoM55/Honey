@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://dyb1ssr8y73ci"]
+
+[ext_resource type="Script" path="res://scripts/honey.gd" id="1_223dw"]
+[ext_resource type="Texture2D" uid="uid://jn3aw0c54yft" path="res://assets/Honey Idle.png" id="1_u4iyw"]
+[ext_resource type="Texture2D" uid="uid://bab221uwu7433" path="res://assets/Honey Walk.png" id="2_wwb0o"]
+[ext_resource type="Texture2D" uid="uid://mfi6ll2m8vo7" path="res://assets/Honey Slimed.png" id="3_b1i43"]
+[ext_resource type="AudioStream" uid="uid://7fyendrc2x8o" path="res://assets/music.mp3" id="5_4bk83"]
+[ext_resource type="AudioStream" uid="uid://dokqdju6b6pem" path="res://assets/coin.mp3" id="6_dfpds"]
+[ext_resource type="Script" path="res://scripts/Music.gd" id="6_vl7sb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpc0s"]
+atlas = ExtResource("1_u4iyw")
+region = Rect2(0, 37, 38, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ui6j"]
+atlas = ExtResource("1_u4iyw")
+region = Rect2(0, 0, 38, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5bt"]
+atlas = ExtResource("3_b1i43")
+region = Rect2(0, 37, 38, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mlor"]
+atlas = ExtResource("3_b1i43")
+region = Rect2(0, 0, 38, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi18b"]
+atlas = ExtResource("2_wwb0o")
+region = Rect2(0, 37, 38, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwd1l"]
+atlas = ExtResource("2_wwb0o")
+region = Rect2(0, 0, 38, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg7ym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpc0s")
+}],
+"loop": true,
+"name": &"Idle left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ui6j")
+}],
+"loop": true,
+"name": &"Idle right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5bt")
+}],
+"loop": true,
+"name": &"slimed_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mlor")
+}],
+"loop": true,
+"name": &"slimed_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi18b")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwd1l")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp2nu"]
+size = Vector2(34, 33.5)
+
+[node name="Honey" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_223dw")
+
+[node name="HoneySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_xg7ym")
+animation = &"Idle right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -0.75)
+shape = SubResource("RectangleShape2D_pp2nu")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4bk83")
+autoplay = true
+stream_paused = true
+bus = &"Music"
+script = ExtResource("6_vl7sb")
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dfpds")
+bus = &"SFX"
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

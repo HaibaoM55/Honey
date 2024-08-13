@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgxta4i07f8gy"]
+
+[ext_resource type="Texture2D" uid="uid://0ofxks4xs37y" path="res://assets/fire.png" id="1_buc7c"]
+[ext_resource type="Script" path="res://scripts/fire.gd" id="1_nox3h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wv6eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_buc7c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogoox"]
+size = Vector2(100, 18)
+
+[node name="Fire" type="Area2D"]
+script = ExtResource("1_nox3h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wv6eo")
+frame_progress = 0.565978
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ogoox")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

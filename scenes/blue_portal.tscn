@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6hujy8bxqj3n"]
+
+[ext_resource type="Texture2D" uid="uid://ci4wp8f5e2pq4" path="res://assets/tileset.png" id="1_frn2l"]
+[ext_resource type="Script" path="res://scripts/portal.gd" id="1_n0vnl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tar1n"]
+size = Vector2(20, 30)
+
+[node name="BluePortal" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_n0vnl")
+
+[node name="PortalSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_frn2l")
+region_enabled = true
+region_rect = Rect2(149.053, 1.10924, 20.1344, 30.9038)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tar1n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0vkmlxajk4y5"]
+
+[ext_resource type="FontFile" uid="uid://qbcdbgfvp7hf" path="res://assets/font.ttf" id="1_mhp1j"]
+[ext_resource type="Texture2D" uid="uid://cn2qhratqnhrr" path="res://assets/playbtn.png" id="2_f4ho2"]
+[ext_resource type="Texture2D" uid="uid://blpikq7fvcyfy" path="res://assets/playbtnh.png" id="3_fg3sb"]
+[ext_resource type="Script" path="res://scripts/playbutton.gd" id="4_kfo04"]
+[ext_resource type="Texture2D" uid="uid://85qlbm206vgj" path="res://assets/exitbtn.png" id="5_6kfrc"]
+[ext_resource type="Texture2D" uid="uid://c1riuo60n62rb" path="res://assets/exitbtnh.png" id="6_ekake"]
+[ext_resource type="Script" path="res://scripts/exitbtn.gd" id="7_jk2ul"]
+[ext_resource type="AudioStream" uid="uid://dlwcmc10q8fee" path="res://assets/menu_music.mp3" id="8_sommt"]
+[ext_resource type="Script" path="res://scripts/MenuMusic.gd" id="9_ebbxl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jicr4"]
+font = ExtResource("1_mhp1j")
+font_size = 128
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -959.0
+offset_top = -541.0
+offset_right = 959.0
+offset_bottom = 538.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 1922.0
+offset_bottom = 156.0
+text = "Honey"
+label_settings = SubResource("LabelSettings_jicr4")
+horizontal_alignment = 1
+
+[node name="PlayButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 672.0
+offset_top = 217.0
+offset_right = 1231.72
+offset_bottom = 402.077
+texture_normal = ExtResource("2_f4ho2")
+texture_hover = ExtResource("3_fg3sb")
+script = ExtResource("4_kfo04")
+
+[node name="ExitButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 672.0
+offset_top = 582.0
+offset_right = 1231.72
+offset_bottom = 767.077
+texture_normal = ExtResource("5_6kfrc")
+texture_hover = ExtResource("6_ekake")
+script = ExtResource("7_jk2ul")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_sommt")
+script = ExtResource("9_ebbxl")
+
+[connection signal="pressed" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/ExitButton" to="Panel/ExitButton" method="_on_pressed"]
+[connection signal="finished" from="MenuMusic" to="MenuMusic" method="_on_finished"]
+[connection signal="ready" from="MenuMusic" to="MenuMusic" method="_on_ready"]

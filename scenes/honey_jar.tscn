@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://01727gcuy2ub"]
+
+[ext_resource type="Script" path="res://scripts/jar.gd" id="1_dirg3"]
+[ext_resource type="Texture2D" uid="uid://ci4wp8f5e2pq4" path="res://assets/tileset.png" id="1_fkyal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hahep"]
+size = Vector2(28, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7cyf"]
+font_size = 20
+font_color = Color(0.721879, 0.696994, 0.127709, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HoneyJar" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_dirg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fkyal")
+region_enabled = true
+region_rect = Rect2(113.864, -0.000490189, 28.2423, 32.1611)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hahep")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -95.0
+offset_top = -44.0
+offset_right = 96.0
+offset_bottom = -16.0
+text = "Honey Jar collected!"
+label_settings = SubResource("LabelSettings_b7cyf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddu3q1p5qj4aa"]
+
+[ext_resource type="Script" path="res://scripts/cannon_ball.gd" id="1_52sty"]
+[ext_resource type="Texture2D" uid="uid://dmvfib2assr3u" path="res://assets/cannonball.png" id="1_btws3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mui07"]
+radius = 5.09902
+
+[node name="CannonBall" type="Area2D"]
+visible = false
+visibility_layer = 2
+script = ExtResource("1_52sty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visibility_layer = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_btws3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mui07")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

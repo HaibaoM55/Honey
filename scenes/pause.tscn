@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://nt50hocqs08n"]
+
+[ext_resource type="Script" path="res://scripts/continue.gd" id="1_oe20r"]
+[ext_resource type="Script" path="res://scripts/mainmenubtn.gd" id="1_rb1f2"]
+[ext_resource type="FontFile" uid="uid://qbcdbgfvp7hf" path="res://assets/font.ttf" id="2_rsosq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3u17b"]
+font = ExtResource("2_rsosq")
+font_size = 32
+
+[node name="Pause" type="Panel"]
+process_mode = 3
+visible = false
+offset_left = -227.0
+offset_top = -146.0
+offset_right = 259.0
+offset_bottom = 126.0
+
+[node name="MenuButton2" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 144.0
+offset_right = 487.0
+offset_bottom = 175.0
+text = "Main Menu"
+script = ExtResource("1_rb1f2")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_top = 83.0
+offset_right = 487.0
+offset_bottom = 114.0
+text = "Continue"
+script = ExtResource("1_oe20r")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 486.0
+offset_bottom = 26.0
+text = "Pause menu"
+label_settings = SubResource("LabelSettings_3u17b")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MenuButton2" to="MenuButton2" method="_on_pressed"]
+[connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]

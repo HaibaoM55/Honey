@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://w320l0u6n0r"]
+
+[ext_resource type="FontFile" uid="uid://qbcdbgfvp7hf" path="res://assets/font.ttf" id="1_nabhq"]
+[ext_resource type="Script" path="res://scripts/resolution.gd" id="2_v7r5i"]
+[ext_resource type="Script" path="res://scripts/fullscreen.gd" id="3_ab6jq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4l8sq"]
+font = ExtResource("1_nabhq")
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_prkj8"]
+font = ExtResource("1_nabhq")
+font_size = 64
+
+[node name="Settings" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -959.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 539.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 191.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_4l8sq")
+horizontal_alignment = 1
+
+[node name="Resolution" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 270.0
+offset_right = 456.0
+offset_bottom = 317.0
+text = "Resolution"
+label_settings = SubResource("LabelSettings_prkj8")
+
+[node name="OptionButton" type="OptionButton" parent="Panel"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 286.0
+offset_right = 535.0
+offset_bottom = 306.0
+item_count = 10
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280×720"
+popup/item_1/id = 1
+popup/item_2/text = "854×480"
+popup/item_2/id = 2
+popup/item_3/text = "640×360"
+popup/item_3/id = 3
+popup/item_4/text = "426×240"
+popup/item_4/id = 4
+popup/item_5/text = "800 x 600"
+popup/item_5/id = 5
+popup/item_6/text = "1024 x 768"
+popup/item_6/id = 6
+popup/item_7/text = "1440 x 1080"
+popup/item_7/id = 7
+popup/item_8/text = "1600 x 1200"
+popup/item_8/id = 8
+popup/item_9/text = "1920 x 1440"
+popup/item_9/id = 9
+script = ExtResource("2_v7r5i")
+
+[node name="Resolution2" type="Label" parent="Panel"]
+offset_left = 158.0
+offset_top = 386.0
+offset_right = 459.0
+offset_bottom = 433.0
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_prkj8")
+
+[node name="CheckButton" type="CheckButton" parent="Panel"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 405.0
+offset_right = 522.0
+offset_bottom = 431.0
+button_pressed = true
+script = ExtResource("3_ab6jq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="item_selected" from="Panel/OptionButton" to="Panel/OptionButton" method="_on_item_selected"]
+[connection signal="button_down" from="Panel/CheckButton" to="Panel/CheckButton" method="_on_button_down"]
+[connection signal="button_up" from="Panel/CheckButton" to="Panel/CheckButton" method="_on_button_up"]
