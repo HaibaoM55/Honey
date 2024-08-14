@@ -1,6 +1,6 @@
 extends Area2D
 var once = true
-var health = 4
+var health = 100
 func _process(delta):
 	if(health > 0 and Globals.checkpoint == 1 and once):
 		$Timer.start()
